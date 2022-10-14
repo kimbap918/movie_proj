@@ -101,3 +101,16 @@ def review_detail(request, pk):
     }
     return render(request, 'movie/review_detail.html', context)
 
+def review_update(request, pk):
+    review = Review.objects.get(pk=pk)
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST, instance=review)
+        if review_form.is_valid():
+            review_form.save()
+            return redirect('movie:review_detail', review.pk)
+    else:
+        review_form = ReviewForm(instance=review)
+    context = {
+        'review_form': review_form
+    }
+    return render(request, 'movie/review_update.html', context)
