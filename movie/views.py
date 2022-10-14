@@ -93,3 +93,11 @@ def community(request):
         'reviews': reviews
     }
     return render(request, 'movie/community.html', context)
+
+def review_detail(request, pk):
+    review = Review.objects.get(pk=pk)
+    context = {
+        'review': review
+    }
+    return render(request, 'movie/review_detail.html', context)
+

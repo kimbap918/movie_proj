@@ -13,4 +13,5 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('create/', views.create, name='create'),
     path('community/', views.community, name='community'),
+    path('review_detail/<int:pk>/', views.review_detail, name='review_detail'),
 ]
