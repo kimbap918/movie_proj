@@ -3,7 +3,8 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
-
+from .forms import CustomUserChangeForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -51,3 +52,16 @@ def detail(request, pk):
     }
   return render(request, 'movie/detail.html', context)
 
+@login_required
+def update(request):
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('movie:detail', request.user.pk)
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+    context = {
+        'form': form
+    }
+    return render(request, 'movie/update.html', context)
