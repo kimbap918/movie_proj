@@ -2,19 +2,19 @@
 {% load django_bootstrap5 %}
 {% block body %}
   <h1>안녕하세요.</h1>
-  {% comment %} <div class="mt-2">
-    <a href="{% url 'authapp:signup' %}">
+  <div class="mt-2">
+    <a href="{% url 'movie:signup' %}">
       <button class="btn btn-outline-primary col-12">회원 가입</button>
     </a>
   </div>
-  <div class="mt-2">
+  {% comment %} <div class="mt-2">
     <a href="{% url 'authapp:accounts' %}">
       <button class="btn btn-outline-primary col-12">회원 목록</button>
     </a>
-  </div>
+  </div> {% endcomment %}
   <div class="mt-2">
-    <a href="{% url 'authapp:login' %}">
+    <a href="{% url 'movie:login' %}">
       <button class="btn btn-outline-primary col-12">로그인</button>
     </a>
-  </div> {% endcomment %}
+  </div> 
 {% endblock body %}
