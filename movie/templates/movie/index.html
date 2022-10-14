@@ -7,14 +7,14 @@
       <button class="btn btn-outline-primary col-12">회원 가입</button>
     </a>
   </div>
-  {% comment %} <div class="mt-2">
-    <a href="{% url 'authapp:accounts' %}">
+  <div class="mt-2">
+    <a href="{% url 'movie:accounts' %}">
       <button class="btn btn-outline-primary col-12">회원 목록</button>
     </a>
-  </div> {% endcomment %}
+  </div>
   <div class="mt-2">
     <a href="{% url 'movie:login' %}">
       <button class="btn btn-outline-primary col-12">로그인</button>
     </a>
-  </div> 
+  </div>
 {% endblock body %}
