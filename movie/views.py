@@ -42,3 +42,12 @@ def accounts(request):
         'accounts': accounts
     }
     return render(request, 'movie/accounts.html', context)
+
+
+def detail(request, pk):
+  user = get_user_model().objects.get(pk=pk)
+  context = {
+    'user': user
+    }
+  return render(request, 'movie/detail.html', context)
+

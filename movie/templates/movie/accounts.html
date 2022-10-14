@@ -6,7 +6,7 @@
     <table class="table">
       <!-- 테이블 헤드 -->
       <thead class="table-light">
-        <tr> 
+        <tr>
           <th scope="col">PK</th>
           <th scope="col">USER NAME</th>
           <th scope="col">EMAIL</th>
@@ -18,8 +18,8 @@
           <tr>
             <th>{{ account.pk }}</th>
             <th>
-              {% comment %} < href="{% url 'movie:detail' account.pk %}"> {% endcomment %}
-                {{ account.username }}
+              <a href="{% url 'movie:detail' account.pk %}">
+                {{ account.username }}</a>
             </th>
 
             <th>{{ account.email }}</th>
