@@ -11,4 +11,6 @@ urlpatterns = [
     path('detail/<int:pk>/', views.detail, name="detail"),
     path('update/', views.update, name='update'),
     path('logout/', views.logout, name='logout'),
+    path('create/', views.create, name='create'),
+    path('community/', views.community, name='community'),
 ]
