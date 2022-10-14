@@ -14,5 +14,6 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('community/', views.community, name='community'),
     path('review_detail/<int:pk>/', views.review_detail, name='review_detail'),
-    path('review_udate/<int:pk>', views.review_update, name='review_update'),
+    path('review_update/<int:pk>', views.review_update, name='review_update'),
+    path('review_delete/<int:pk>', views.review_delete, name='review_delete'),
 ]

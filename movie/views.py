@@ -56,7 +56,7 @@ def detail(request, pk):
     }
   return render(request, 'movie/detail.html', context)
 
-@login_required
+@login_required(login_url='movie:login')
 def update(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)
@@ -74,6 +74,7 @@ def logout(request):
   auth_logout(request)
   return redirect('movie:index')
 
+@login_required(login_url='movie:login')
 def create(request):
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
@@ -101,6 +102,7 @@ def review_detail(request, pk):
     }
     return render(request, 'movie/review_detail.html', context)
 
+@login_required(login_url='movie:login')
 def review_update(request, pk):
     review = Review.objects.get(pk=pk)
     if request.method == 'POST':
@@ -114,3 +116,8 @@ def review_update(request, pk):
         'review_form': review_form
     }
     return render(request, 'movie/review_update.html', context)
+
+@login_required(login_url='movie:login')
+def review_delete(request, pk):
+    Review.objects.get(pk=pk).delete()
+    return redirect('movie:community')
